@@ -66,6 +66,16 @@ public class Controle {
         return acao.findByNomeContaining("l");
     }
 
+    @GetMapping("/api/iniciaCom")
+    public List<Pessoa> iniciaCom(){
+        return acao.findByNomeStartsWith("a");
+    }
+    
+    @GetMapping("/api/terminaCom")
+    public List<Pessoa> terminaCom(){
+        return acao.findByNomeEndsWith("a");
+    }
+
     @GetMapping("")
     public String mensagem(){
         return"heeeello Word";
