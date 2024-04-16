@@ -2,6 +2,7 @@ package br.com.kitnets.api.repositorio;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -23,5 +24,9 @@ public interface Repositorio extends CrudRepository<Pessoa, Integer> {
     List<Pessoa> findByNomeStartsWith(String Termo);
 
     List<Pessoa> findByNomeEndsWith(String Termo);
+
+    @Query(value = "SELECT SUM(idade) FROM pessoas", nativeQuery = true )
+    int somaIdades();
+
     
 }

@@ -75,6 +75,11 @@ public class Controle {
     public List<Pessoa> terminaCom(){
         return acao.findByNomeEndsWith("a");
     }
+    
+    @GetMapping("/api/somaIdades")
+    public int somaIdades(){
+        return acao.somaIdades();
+    }
 
     @GetMapping("")
     public String mensagem(){
