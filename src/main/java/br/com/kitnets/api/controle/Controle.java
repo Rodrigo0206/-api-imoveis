@@ -81,6 +81,11 @@ public class Controle {
         return acao.somaIdades();
     }
 
+    @GetMapping("/api/idadeMaiorIgual")
+    public List<Pessoa> idadeMaiorIgual(){
+        return acao.idadeMaiorIgual(18);
+    }
+
     @GetMapping("")
     public String mensagem(){
         return"heeeello Word";
