@@ -86,5 +86,10 @@ public class Controle {
         return p;
     }
 
+    @GetMapping("/status")
+    public String status(){
+        return "Configurando status";
+    }
+
     
 }
