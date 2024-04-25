@@ -3,6 +3,8 @@ package br.com.kitnets.api.controle;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -87,7 +89,7 @@ public class Controle {
     }
 
     @GetMapping("")
-    public String mensagem(){
+    public String mensagem(){   // teste 3
         return"heeeello Word";
     }
     
@@ -107,8 +109,8 @@ public class Controle {
     }
 
     @GetMapping("/status")
-    public String status(){
-        return "Configurando status";
+    public ResponseEntity<?> status(){
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     
