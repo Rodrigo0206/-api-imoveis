@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.kitnets.api.modelo.Pessoa;
 import br.com.kitnets.api.repositorio.Repositorio;
+import br.com.kitnets.api.servico.Servico;
 
 @RestController
 public class Controle {
@@ -22,9 +23,12 @@ public class Controle {
     @Autowired
     private Repositorio acao;
 
+    @Autowired
+    private Servico servico;
+
     @PostMapping("/api")
-    public Pessoa cadastrar(@RequestBody Pessoa obj){
-        return acao.save(obj);
+    public ResponseEntity<?> cadastrar(@RequestBody Pessoa obj){
+        return servico.cadastrar(obj);
 
     }
     @GetMapping("/api")
@@ -84,12 +88,12 @@ public class Controle {
     }
 
     @GetMapping("/api/idadeMaiorIgual")
-    public List<Pessoa> idadeMaiorIgual(){     //teste branch 1
-        return acao.idadeMaiorIgual(18);   //teste branch 2 19/04
+    public List<Pessoa> idadeMaiorIgual(){     
+        return acao.idadeMaiorIgual(18);   
     }
 
     @GetMapping("")
-    public String mensagem(){   // teste 3
+    public String mensagem(){   
         return"heeeello Word";
     }
     
